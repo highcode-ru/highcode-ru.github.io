@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Base - Tailwind CSS Startup Template</title>
-  <link rel="icon" href="favicon.ico"><link href="style.css" rel="stylesheet"></head>
+    <title>High Code - Разработка сайтов, лендингов и интернет-магазинов</title>
+  <link rel="icon" href="favicon.svg"><link href="style.css" rel="stylesheet"></head>
   <body
     x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
     x-init="
@@ -1262,7 +1262,112 @@
             </div>
 
             <div class="animate_top w-full nn/5 vo/3 vk sg hh sm yh tq">
-              <form action="https://formbold.com/s/unique_form_id" method="POST">
+
+
+<form
+  action="https://formsubmit.co/highcode.ru@email.com"
+  method="POST"
+  class="space-y-6"
+>
+  <!-- Защита от спама -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Куда редиректить после отправки -->
+  <input
+    type="hidden"
+    name="_next"
+    value="https://your-site.github.io/thanks.html"
+  >
+
+  <div class="tc sf yo ap zf ep qb">
+    <!-- Имя -->
+    <div class="vd to/2">
+      <label class="rc ac" for="fullname">Имя</label>
+
+      <input
+        type="text"
+        name="fullname"
+        id="fullname"
+        placeholder="Введите ваше имя"
+        required
+        class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+      />
+    </div>
+
+    <!-- Фамилия -->
+    <div class="vd to/2">
+      <label class="rc ac" for="lastname">Фамилия</label>
+
+      <input
+        type="text"
+        name="lastname"
+        id="lastname"
+        placeholder="Введите вашу фамилию"
+        required
+        class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+      />
+    </div>
+  </div>
+
+  <div class="tc sf yo ap zf ep qb">
+    <!-- Телефон -->
+    <div class="vd to/2">
+      <label class="rc ac" for="phone">Телефон</label>
+
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        placeholder="+7 (999) 123-45-67"
+        required
+        class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+      />
+    </div>
+
+    <!-- Email -->
+    <div class="vd to/2">
+      <label class="rc ac" for="email">Email</label>
+
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="example@gmail.com"
+        required
+        class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
+      />
+    </div>
+  </div>
+
+  <!-- Сообщение -->
+  <div class="fb">
+    <label class="rc ac" for="message">
+      Сообщение (необязательно)
+    </label>
+
+    <textarea
+      placeholder="Введите ваше сообщение"
+      rows="4"
+      name="message"
+      id="message"
+      class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 ci"
+    ></textarea>
+  </div>
+
+  <!-- Кнопка -->
+  <div class="tc xf">
+    <button
+      type="submit"
+      class="vc rg lk gh ml il hi gi _l"
+    >
+      Отправить заявку
+    </button>
+  </div>
+</form>
+
+
+
+              <!--<form action="https://formbold.com/s/unique_form_id" method="POST">
                 <div class="tc sf yo ap zf ep qb">
                   <div class="vd to/2">
                     <label class="rc ac" for="fullname">Имя</label>
@@ -1325,7 +1430,7 @@
                 <div class="tc xf">
                   <button class="vc rg lk gh ml il hi gi _l">Отправить заявку</button>
                 </div>
-              </form>
+              </form>-->
             </div>
           </div>
         </div>
