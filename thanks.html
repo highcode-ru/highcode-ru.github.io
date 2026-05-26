@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>High Code - Разработка сайтов, лендингов и интернет-магазинов</title>
+  <link rel="icon" href="favicon.svg"><link href="style.css" rel="stylesheet"></head>
+  <body
+    x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'b eh': darkMode === true}"
+  >
+    <!-- ===== Header Start ===== -->
+    <header
+  class="g s r vd ya cj"
+  :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+  @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false"
+>
+  <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
+    <div class="vd to/4 tc wf yf">
+      <a href="/">
+        <img class="om" style="height:20px; width: auto;" src="images/logo1.png" alt="Logo Light" />
+        <img class="xc nm" style="height:20px; width: auto;" src="images/logo1.png" alt="Logo Dark" />
+      </a>
+
+      <!-- Hamburger Toggle BTN -->
+      <button class="po rc" @click="navigationOpen = !navigationOpen">
+        <span class="rc i pf re pd">
+          <span class="du-block h q vd yc">
+            <span class="rc i r s eh um tg te rd eb ml jl dl" :class="{ 'ue el': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl fl" :class="{ 'ue qr': !navigationOpen }"></span>
+            <span class="rc i r s eh um tg te rd eb ml jl gl" :class="{ 'ue hl': !navigationOpen }"></span>
+          </span>
+          <span class="du-block h q vd yc lf">
+            <span class="rc eh um tg ml jl el h na r ve yc" :class="{ 'sd dl': !navigationOpen }"></span>
+            <span class="rc eh um tg ml jl qr h s pa vd rd" :class="{ 'sd rr': !navigationOpen }"></span>
+          </span>
+        </span>
+      </button>
+      <!-- Hamburger Toggle BTN -->
+    </div>
+
+    <div
+      class="vd wo/4 sd qo f ho oo wf yf"
+      :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }"
+    >
+      <nav>
+        <ul class="tc _o sf yo cg ep">
+          <li><a href="/#about" class="xl">О компании</a></li>
+          <li><a href="/#price" class="xl">Цены</a></li>
+          <li><a href="/#case" class="xl">Портфолио</a></li>
+          <li><a href="/#reviews" class="xl">Отзывы</a></li>
+        </ul>
+      </nav>
+        <a href="/#contact" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }" class="lk gh dk rg tc wf xf _l gi hi header-butt">Связаться с нами</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+    <!-- ===== Header End ===== -->
+
+    <main>
+
+      <section class="gj do ir hj sp jr i pg" style="min-height: calc(100vh - 100px);">
+
+        <div class="bb ze ki xn 2xl:ud-px-0">
+          <div class="tc _o">
+            <div class="animate_left jn/2">
+              <h1 class="fk vj zp or kk wm wb">Ваша заявка успешно отправлена!</h1>
+              <p class="fq">
+                Спасибо, что обратились к нам. Ваша заявка успешно принята, и мы свяжемся с вами в самое ближайшее время! 
+              </p>
+
+              <div class="tc tf yo zf mb">
+                <a href="/" class="ek jk lk gh gi hi rg ml il vc _d _l">На главную</a>
+              </div>
+              <!--<span class="inline-block">Ответим в течение 15 минут</span>-->
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ===== CTA End ===== -->
+    </main>
+    <!-- ===== Footer Start ===== -->
+    <footer>
+  <div class="bb ze ki xn 2xl:ud-px-0">
+  
+
+    <!-- Footer Bottom -->
+    <div class="bh ch pm tc uf sf yo wf xf ap cg fp bj">
+      <div class="animate_top">
+        <a href="/">
+        <img class="om" style="height:20px; width: auto;" src="images/logo1.png" alt="Logo Light" />
+      </a>
+      </div>
+
+      <div class="animate_top">
+        <p>&copy; 2026 High Code</p>
+      </div>
+    </div>
+    <!-- Footer Bottom -->
+  </div>
+</footer>
+
+    <!-- ===== Footer End ===== -->
+
+    <!-- ====== Back To Top Start ===== -->
+    <button
+  class="xc wf xf ie ld vg sr gh tr g sa ta _a"
+  @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+  @scroll.window="scrollTop = (window.pageYOffset > 50) ? true : false"
+  :class="{ 'uc' : scrollTop }"
+>
+  <svg class="uh se qd" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z" />
+  </svg>
+</button>
+
+    <!-- ====== Back To Top End ===== -->
+
+    <script>
+      //  Pricing Table
+      const setup = () => {
+        return {
+          isNavOpen: false,
+
+          billPlan: 'monthly',
+
+          plans: [
+            {
+              name: 'Визитки и Landing Page',
+              price: {
+                monthly: 25,
+                annually: 25,
+              },
+              features: ['Быстрый запуск', 'Уникальный дизайн', 'Адаптация под все устройства'],
+            },
+            {
+              name: 'Корпоративный сайт',
+              price: {
+                monthly: 50,
+                annually: 50,
+              },
+              features: ['Индивидуальная структура', 'Продуманный UX/UI дизайн', 'Удобная админ-панель'],
+            },
+            {
+              name: 'Интернет-магазин',
+              price: {
+                monthly: 85,
+                annually: 85,
+              },
+              features: ['Каталог товаров', 'Удобная админ-панель', 'Интеграции (CRM, платежи)'],
+            },
+          ],
+        };
+      };
+    </script>
+  <script defer src="bundle.js"></script></body>
+</html>
