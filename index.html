@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>High Code - Разработка сайтов, лендингов и интернет-магазинов</title>
+    <title>High Code1 - Разработка сайтов, лендингов и интернет-магазинов</title>
   <link rel="icon" href="favicon.svg"><link href="style.css" rel="stylesheet"></head>
   <body
     x-data="{ page: 'home', 'darkMode': true, 'stickyMenu': false, 'navigationOpen': false, 'scrollTop': false }"
@@ -1319,8 +1319,8 @@
         name="phone"
         id="phone"
         placeholder="+7 (999) 999-99-99"
+        autocomplete="tel"
         required
-        maxlength="18"
         class="vd ph sg zk xm _g ch pm hm dm dn em pl/50 xi mi"
       />
     </div>
@@ -1695,39 +1695,56 @@
 <script>
   const phoneInput = document.getElementById('phone');
 
-  phoneInput.addEventListener('input', function (e) {
-    let x = e.target.value.replace(/\D/g, '');
+  function formatPhone(value) {
+    let numbers = value.replace(/\D/g, '');
 
-    // Всегда начинаем с 7
-    if (x.startsWith('8')) x = '7' + x.slice(1);
-    if (!x.startsWith('7')) x = '7' + x;
-
-    x = x.substring(0, 11);
-
-    let formatted = '+7';
-
-    if (x.length > 1) {
-      formatted += ' (' + x.substring(1, 4);
+    // 8 -> 7
+    if (numbers.startsWith('8')) {
+      numbers = '7' + numbers.slice(1);
     }
 
-    if (x.length >= 5) {
-      formatted += ') ' + x.substring(4, 7);
+    // если не начинается с 7
+    if (!numbers.startsWith('7')) {
+      numbers = '7' + numbers;
     }
 
-    if (x.length >= 8) {
-      formatted += '-' + x.substring(7, 9);
+    numbers = numbers.substring(0, 11);
+
+    let result = '+7';
+
+    if (numbers.length > 1) {
+      result += ' (' + numbers.substring(1, 4);
     }
 
-    if (x.length >= 10) {
-      formatted += '-' + x.substring(9, 11);
+    if (numbers.length >= 5) {
+      result += ') ' + numbers.substring(4, 7);
     }
 
-    e.target.value = formatted;
+    if (numbers.length >= 8) {
+      result += '-' + numbers.substring(7, 9);
+    }
+
+    if (numbers.length >= 10) {
+      result += '-' + numbers.substring(9, 11);
+    }
+
+    return result;
+  }
+
+  phoneInput.addEventListener('input', (e) => {
+    e.target.value = formatPhone(e.target.value);
   });
 
-  phoneInput.addEventListener('focus', function (e) {
+  phoneInput.addEventListener('focus', (e) => {
     if (!e.target.value) {
-      e.target.value = '+7 (';
+      e.target.value = '+7';
+    }
+  });
+
+  // Убираем незаполненную маску
+  phoneInput.addEventListener('blur', (e) => {
+    if (e.target.value === '+7') {
+      e.target.value = '';
     }
   });
 </script>
